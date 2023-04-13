@@ -12,7 +12,8 @@
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/malgunbd"/>
 
         <ImageView
             android:id="@+id/imageView"
@@ -28,7 +29,8 @@
             android:text="개별 평가"
             android:textColor="#050505"
             android:textSize="34sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/malgunbd"/>
 
         <TextView
             android:id="@+id/textView11"
@@ -39,7 +41,8 @@
             android:background="@drawable/line2"
             android:textColor="#000000"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/malgunbd"/>
 
         <Button
             android:id="@+id/button4"
@@ -51,7 +54,8 @@
             android:text="Home"
             android:textColor="#000000"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/malgunbd"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/line2"
             android:orientation="vertical"
-            >
+            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:id="@+id/textView"
@@ -27,20 +27,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/malgunbd"
                 android:text="녹음완료"
                 android:textColor="#000000"
-                android:textSize="17sp" />
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/malgunbd" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
+                android:fontFamily="@font/malgunbd"
                 android:text="발표 연습 녹음이 완료되었습니다. \n평가 창으로 이동합니다."
                 android:textColor="#000000"
                 android:textSize="15sp" />
@@ -48,7 +51,8 @@
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/malgunbd" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +64,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="                              " />
+                    android:fontFamily="@font/malgunbd"
+                    android:text="                     " />
 
                 <Button
                     android:id="@+id/button"
@@ -69,10 +74,10 @@
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
                     android:backgroundTint="#FFFFFF"
+                    android:fontFamily="@font/malgunbd"
                     android:text="다시 연습하기"
                     android:textColor="#284BC8"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp"/>
 
                 <Button
                     android:id="@+id/button2"
@@ -80,10 +85,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="#00FFFFFF"
+                    android:fontFamily="@font/malgunbd"
                     android:text="평가하기"
                     android:textColor="#284BC8"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
 
