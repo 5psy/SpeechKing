@@ -69,7 +69,7 @@
                     android:layout_marginRight="15dp"
                     android:background="@drawable/view_border"
                     android:text="여기에 대본 들어 갑니다"
-                    android:fontFamily="@font/malgunbd"
+                    android:fontFamily="@font/malgun"
                     android:textSize="16dp"/>
             </LinearLayout>
         </ScrollView>
