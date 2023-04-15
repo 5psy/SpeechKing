@@ -28,16 +28,21 @@
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="234dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/line2"
+            android:fontFamily="@font/malgunbd"
             android:gravity="center"
             android:text="대본"
             android:textColor="#000000"
-            android:textSize="24sp"
-            android:fontFamily="@font/malgunbd" />
+            android:textSize="24sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="135dp" />
 
         <TextView
             android:id="@+id/textView8"
@@ -64,34 +69,35 @@
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_height="64dp"
                     android:layout_marginTop="50dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/img" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/audioRecordText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="36dp"
                     android:layout_marginTop="70dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/malgunbd"
                     android:text="녹음중"
                     android:textColor="#000000"
-                    android:fontFamily="@font/malgunbd" />
+                    android:textSize="20sp" />
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="31dp"
-                    android:layout_height="50dp"
+                <ImageButton
+                    android:id="@+id/audioRecordImageBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:layout_marginRight="70dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/img_2" />
+                    android:padding="16dp"
+                    android:src="@drawable/ic_record" />
 
                 <ImageView
                     android:id="@+id/imageView7"
                     android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_height="69dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
