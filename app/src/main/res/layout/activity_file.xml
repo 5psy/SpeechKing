@@ -67,5 +67,7 @@
             android:text="파일 업로드"
             android:fontFamily="@font/malgunbd"/>
 
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
