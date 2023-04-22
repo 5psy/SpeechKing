@@ -31,7 +31,7 @@ import java.io.InputStreamReader;
 public class File extends AppCompatActivity {
 
     private TextView textView;
-    private Button select_button;
+    //private Button select_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
