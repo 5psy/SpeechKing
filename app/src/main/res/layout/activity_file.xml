@@ -50,6 +50,7 @@
             android:backgroundTint="#FBC3B1"
             android:fontFamily="@font/malgunbd"
             android:gravity="center"
+            android:onClick="selectFile"
             android:text="파일 선택"
             android:textColor="#090909"
             android:textSize="20sp" />

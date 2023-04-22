@@ -12,19 +12,93 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
+/*import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+import com.google.firebase.storage.UploadTask;*/
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 public class File extends AppCompatActivity {
 
-    private static final String TAG = "File";
+    private TextView textView;
+    private Button select_button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_file);
+
+        textView = findViewById(R.id.FileName);
+    }
+
+    public void selectFile(View view) {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("text/plain");
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(data.getData());
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+
+                inputStream.close();
+
+                String fileContent = stringBuilder.toString();
+
+                Intent intent = new Intent(this, output.class);
+                intent.putExtra("fileContent", fileContent);
+                startActivity(intent);
+
+                // Update the text of the TextView with the file content
+                //textView.setText(fileContent);
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*private static final String TAG = "File";
 
     private Button attachbtn;
     private Button uploadbtn;
@@ -39,16 +113,16 @@ public class File extends AppCompatActivity {
 
         attachbtn = (Button) findViewById(R.id.attachbtn);
         uploadbtn = (Button) findViewById(R.id.uploadbtn);
-        FileName = findViewById(R.id.FileName);
+        FileName = findViewById(R.id.FileName);*/
 
-        attachbtn.setOnClickListener(new View.OnClickListener() {
+        /*attachbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setType("*/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "파일을 선택하세요."),0);
-            }
+                Intent intent = new Intent();*/
+                //intent.setType("*/*");
+                //intent.setAction(Intent.ACTION_GET_CONTENT);
+                //startActivityForResult(Intent.createChooser(intent, "파일을 선택하세요."),0);
+        /*    }
         });
 
         uploadbtn.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +196,5 @@ public class File extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "파일을 먼저 선택하세요.", Toast.LENGTH_SHORT).show();
         }
 
-    }
-
+    }*/
 }

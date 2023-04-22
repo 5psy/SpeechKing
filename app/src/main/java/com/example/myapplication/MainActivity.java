@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -18,6 +19,8 @@ import java.io.InputStreamReader;
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
+    private Button select_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.text_view);
     }
+
     public void selectFile(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("text/plain");
         startActivityForResult(intent, 1);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -49,8 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
                 String fileContent = stringBuilder.toString();
 
+                Intent intent = new Intent(this, output.class);
+                intent.putExtra("fileContent", fileContent);
+                startActivity(intent);
+
                 // Update the text of the TextView with the file content
-                textView.setText(fileContent);
+                //textView.setText(fileContent);
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

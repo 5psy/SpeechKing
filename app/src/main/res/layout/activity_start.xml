@@ -20,7 +20,7 @@
             app:srcCompat="@drawable/king" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/script"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:layout_marginTop="40dp"
