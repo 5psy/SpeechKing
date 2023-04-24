@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 
 public class File extends AppCompatActivity {
 
-    private TextView textView;
+
     //private Button select_button;
 
     @Override
@@ -38,7 +38,7 @@ public class File extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file);
 
-        textView = findViewById(R.id.FileName);
+
     }
 
     public void selectFile(View view) {
