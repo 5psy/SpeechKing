@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ public class output extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.script_output);
+        setContentView(R.layout.output);
 
         script = findViewById(R.id.script);
 
@@ -25,6 +26,10 @@ public class output extends AppCompatActivity {
         String fileContent = intent.getStringExtra("fileContent");
 
         script.setText(fileContent);
+
+
+        TextView text = (TextView)findViewById(R.id.script);
+            text.setMovementMethod(new ScrollingMovementMethod());
 
         Button selectagain = findViewById(R.id.selectagain);
         selectagain.setOnClickListener(new View.OnClickListener() {
