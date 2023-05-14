@@ -34,6 +34,7 @@ public class record extends AppCompatActivity {
 
     ImageButton audioRecordImageBtn;
     TextView audioRecordText;
+    private ImageView next;
 
     // 오디오 권한
     private final String recordPermission = Manifest.permission.RECORD_AUDIO;
