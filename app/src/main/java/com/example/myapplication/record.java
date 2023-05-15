@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,8 +15,6 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -61,6 +58,7 @@ public class record extends AppCompatActivity {
         init();
     }
 
+
     // 리사이클러뷰 생성 및 클릭 이벤트
     private void init() {
 
@@ -77,6 +75,7 @@ public class record extends AppCompatActivity {
                     audioRecordImageBtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_record, null)); // 녹음 상태 아이콘 변경
                     audioRecordText.setText(""); // 녹음 상태 텍스트 변경
                     stopRecording();
+
                     // 녹화 이미지 버튼 변경 및 리코딩 상태 변수값 변경
                 } else {
                     // 현재 녹음 중 X
@@ -146,6 +145,7 @@ public class record extends AppCompatActivity {
         }
     }
 
+
     // 녹음 시작
     private void startRecording() {
         String recordPath = getExternalFilesDir("/").getAbsolutePath();
@@ -181,7 +181,6 @@ public class record extends AppCompatActivity {
         audioList.add(audioUri);
 
         audioAdapter.notifyDataSetChanged();
-
     }
 
     // 녹음 파일 재생

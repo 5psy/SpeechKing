@@ -73,7 +73,6 @@
                     android:layout_marginRight="15dp"
                     android:background="@drawable/view_border"
                     android:fontFamily="@font/malgun"
-                    android:text="대본 분석 완료"
                     android:textColor="#0C0C0C"
                     android:textSize="16dp" />
             </LinearLayout>
