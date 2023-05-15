@@ -66,7 +66,7 @@ public class File extends AppCompatActivity {
 
                 String fileContent = stringBuilder.toString();
 
-                Intent intent = new Intent(this, output.class);
+                Intent intent = new Intent(this, socket_test2.class);
                 intent.putExtra("fileContent", fileContent);
                 startActivity(intent);
 
