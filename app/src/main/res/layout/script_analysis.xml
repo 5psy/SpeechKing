@@ -16,18 +16,6 @@
             android:layout_height="70dp"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/backbtn"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-
-                android:layout_weight="1"
-                android:backgroundTint="#ED4FA6"
-                android:text="뒤로"
-                android:fontFamily="@font/malgunbd"/>
-
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,6 +26,7 @@
                 android:layout_width="30dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
+                android:layout_marginLeft="75dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/king" />
 

@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.text.Html;
 import android.text.Spanned;
@@ -17,12 +20,22 @@ import com.google.firebase.database.ValueEventListener;
 
 public class analysis extends AppCompatActivity {
     private TextView textview2;
+    private Button practicebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.script_analysis);
 
+
+        practicebtn = findViewById(R.id.practicebtn);
+        practicebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(analysis.this,record.class);
+                startActivity(intent);
+            }
+        });
         textview2 = findViewById(R.id.textview2);
 
         TextView text = (TextView)findViewById(R.id.textview2);
