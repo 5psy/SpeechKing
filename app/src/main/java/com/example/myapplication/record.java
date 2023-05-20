@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,6 +24,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,10 +62,18 @@ public class record extends AppCompatActivity {
     private AudioAdapter audioAdapter;
     private ArrayList<Uri> audioList;
 
+    // firebase storage
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record);
+
+        // 파이어베이스 스토리지 초기화
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
 
         init();
     }
@@ -176,9 +192,42 @@ public class record extends AppCompatActivity {
         mediaRecorder.release();
         mediaRecorder = null;
 
-        audioUri = Uri.parse(audioFileName);
+        audioUri = Uri.fromFile(new File(audioFileName));
 
+        // 업로드할 파일 경로
+        StorageReference audioRef = storageReference.child("recordings").child(audioUri.getLastPathSegment());
 
+        // 녹음 파일 업로드
+        audioRef.putFile(audioUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // 업로드 성공 시 처리
+                        Toast.makeText(record.this, "녹음 파일이 업로드되었습니다.", Toast.LENGTH_SHORT).show();
+
+                        // 업로드된 파일의 다운로드 URL 가져오기
+                        audioRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri downloadUri) {
+                                String downloadUrl = downloadUri.toString();
+                                // TODO: 업로드된 파일의 다운로드 URL 활용
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // 다운로드 URL 가져오기 실패 시 처리
+                                Toast.makeText(record.this, "다운로드 URL 가져오기 실패: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // 업로드 실패 시 처리
+                        Toast.makeText(record.this, "녹음 파일 업로드 실패: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
         audioList.add(audioUri);
 
         audioAdapter.notifyDataSetChanged();
