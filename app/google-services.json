@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "191693485515",
-    "project_id": "speech-king-1c672",
-    "storage_bucket": "speech-king-1c672.appspot.com"
+    "project_number": "648508128113",
+    "project_id": "speechking-787ec",
+    "storage_bucket": "speechking-787ec.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:191693485515:android:7d1cb89eb6e3009521324e",
+        "mobilesdk_app_id": "1:648508128113:android:9f2a44a50b44acbd21d4d0",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "191693485515-u32ta4crv224bnn5hssvcbte0rfjq68l.apps.googleusercontent.com",
+          "client_id": "648508128113-ar0d5hiut2b65a40urccj9nr464dtjl5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD_a0G3x9REmvFQDKdbL0nOXrwPaxBKwI8"
+          "current_key": "AIzaSyAP54lUhg-52fzuMSrxrIJdjIw6SlPkJoo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "191693485515-u32ta4crv224bnn5hssvcbte0rfjq68l.apps.googleusercontent.com",
+              "client_id": "648508128113-ar0d5hiut2b65a40urccj9nr464dtjl5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

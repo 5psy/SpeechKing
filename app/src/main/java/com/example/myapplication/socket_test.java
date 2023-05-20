@@ -15,12 +15,19 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 public class socket_test extends AppCompatActivity {
 
     private TextView textView;
 
     private static final String SERVER_IP = "127.0.0.1";
-    private static final int SERVER_PORT = 12345;
+    private static final int SERVER_PORT =12345;
+    private static final String SERVER_URL = "http://127.0.0.1:12345/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +78,7 @@ public class socket_test extends AppCompatActivity {
         }
     }
 
-    private void sendToServer(String message) {
+    /*private void sendToServer(String message) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -80,6 +87,32 @@ public class socket_test extends AppCompatActivity {
                     OutputStream outputStream = socket.getOutputStream();
                     outputStream.write(message.getBytes());
                     socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }*/
+    private void sendToServer(String fileContent) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    RequestBody requestBody = new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("fileContent", fileContent)
+                            .build();
+
+                    Request request = new Request.Builder()
+                            .url(SERVER_URL)
+                            .post(requestBody)
+                            .build();
+
+                    Response response = client.newCall(request).execute();
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Unexpected code " + response);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
