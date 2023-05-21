@@ -47,7 +47,7 @@ public class record extends AppCompatActivity {
 
     ImageButton audioRecordImageBtn;
     TextView audioRecordText;
-    private ImageView next;
+    private Button evaluatebtn;
     private TextView script3;
 
     // 오디오 권한
@@ -80,6 +80,15 @@ public class record extends AppCompatActivity {
         // 파이어베이스 스토리지 초기화
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
+
+        evaluatebtn = findViewById(R.id.evaluatebtn);
+        evaluatebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(record.this,fivestar.class);
+                startActivity(intent);
+            }
+        });
 
         init();
 

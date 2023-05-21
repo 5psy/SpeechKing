@@ -94,14 +94,20 @@
                     android:padding="16dp"
                     android:src="@drawable/ic_record" />
 
-                <ImageView
-                    android:id="@+id/next"
-                    android:layout_width="50dp"
-                    android:layout_height="69dp"
+                <Button
+                    android:id="@+id/evaluatebtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="10dp"
+                    android:backgroundTint="#ED4FA6"
+                    android:padding="20dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/img_1" />
+                    android:text="평가하기"
+                    android:fontFamily="@font/malgunbd"
+                    android:textSize="15dp"/>
+
             </LinearLayout>
         </LinearLayout>
 
