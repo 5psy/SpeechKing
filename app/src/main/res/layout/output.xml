@@ -17,7 +17,6 @@
             app:srcCompat="@drawable/king" />
 
 
-
         <TextView
             android:id="@+id/script"
             android:layout_width="match_parent"
@@ -26,9 +25,9 @@
             android:layout_marginRight="15dp"
             android:background="@drawable/view_border"
             android:fontFamily="@font/malgun"
-            android:textColor="#000000"
-            android:textSize="20sp"
             android:scrollbars="vertical"
+            android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
 

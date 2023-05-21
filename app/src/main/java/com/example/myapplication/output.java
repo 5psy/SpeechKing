@@ -27,7 +27,7 @@ public class output extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.output);
 
@@ -39,18 +39,17 @@ public class output extends AppCompatActivity {
         script.setText(fileContent);
 
 
-        TextView text = (TextView)findViewById(R.id.script);
-            text.setMovementMethod(new ScrollingMovementMethod());
+        TextView text = (TextView) findViewById(R.id.script);
+        text.setMovementMethod(new ScrollingMovementMethod());
 
         selectagain = findViewById(R.id.selectagain);
         selectagain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(output.this,File.class);
+                Intent intent = new Intent(output.this, File.class);
                 startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -76,11 +75,9 @@ public class output extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 conditionRef.setValue(script.getText().toString());
-                Intent intent = new Intent(output.this,analysis.class);
+                Intent intent = new Intent(output.this, analysis.class);
                 startActivity(intent);
             }
         });
     }
-
-
 }

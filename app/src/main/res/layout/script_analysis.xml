@@ -74,7 +74,8 @@
                     android:background="@drawable/view_border"
                     android:fontFamily="@font/malgun"
                     android:textColor="#0C0C0C"
-                    android:textSize="16dp" />
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </ScrollView>
 
