@@ -19,14 +19,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class analysis extends AppCompatActivity {
-    private TextView textview2;
+    private TextView script2;
     private Button practicebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.script_analysis);
-
 
         practicebtn = findViewById(R.id.practicebtn);
         practicebtn.setOnClickListener(new View.OnClickListener() {
@@ -36,9 +35,9 @@ public class analysis extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        textview2 = findViewById(R.id.textview2);
 
-        TextView text = (TextView)findViewById(R.id.textview2);
+        script2 = findViewById(R.id.script2);
+        TextView text = (TextView)findViewById(R.id.script2);
              text.setMovementMethod(new ScrollingMovementMethod());
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -49,7 +48,7 @@ public class analysis extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String htmlText = dataSnapshot.getValue(String.class);
                 Spanned spannedText = Html.fromHtml(htmlText);
-                textview2.setText(spannedText);
+                script2.setText(spannedText);
             }
 
             @Override

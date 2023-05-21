@@ -16,6 +16,9 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -25,6 +28,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -40,6 +48,7 @@ public class record extends AppCompatActivity {
     ImageButton audioRecordImageBtn;
     TextView audioRecordText;
     private ImageView next;
+    private TextView script3;
 
     // 오디오 권한
     private final String recordPermission = Manifest.permission.RECORD_AUDIO;
@@ -73,6 +82,28 @@ public class record extends AppCompatActivity {
         storageReference = firebaseStorage.getReference();
 
         init();
+
+        script3 = findViewById(R.id.script3);
+        TextView text = (TextView)findViewById(R.id.script3);
+        text.setMovementMethod(new ScrollingMovementMethod());
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("output");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String htmlText = dataSnapshot.getValue(String.class);
+                Spanned spannedText = Html.fromHtml(htmlText);
+                script3.setText(spannedText);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error if the data retrieval is canceled
+            }
+
+        });
     }
 
 
@@ -263,4 +294,5 @@ public class record extends AppCompatActivity {
         isPlaying = false;
         mediaPlayer.stop();
     }
+
 }

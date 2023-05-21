@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class output extends AppCompatActivity {
 
-    private TextView script;
+    private TextView script1;
     private Button selectagain;
     private Button analysisbtn;
 
@@ -31,15 +31,15 @@ public class output extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.output);
 
-        script = findViewById(R.id.script);
+        script1 = findViewById(R.id.script1);
 
         Intent intent = getIntent();
         String fileContent = intent.getStringExtra("fileContent");
 
-        script.setText(fileContent);
+        script1.setText(fileContent);
 
 
-        TextView text = (TextView) findViewById(R.id.script);
+        TextView text = (TextView) findViewById(R.id.script1);
         text.setMovementMethod(new ScrollingMovementMethod());
 
         selectagain = findViewById(R.id.selectagain);
@@ -74,7 +74,7 @@ public class output extends AppCompatActivity {
         analysisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                conditionRef.setValue(script.getText().toString());
+                conditionRef.setValue(script1.getText().toString());
                 Intent intent = new Intent(output.this, analysis.class);
                 startActivity(intent);
             }
