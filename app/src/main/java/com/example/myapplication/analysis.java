@@ -27,6 +27,15 @@ public class analysis extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.script_analysis);
 
+
+        practicebtn = findViewById(R.id.practicebtn);
+        practicebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(analysis.this,record.class);
+                startActivity(intent);
+            }
+        });
         textview2 = findViewById(R.id.textview2);
 
         TextView text = (TextView)findViewById(R.id.textview2);
