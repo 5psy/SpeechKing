@@ -209,7 +209,7 @@ public class record extends AppCompatActivity {
         String recordPath = getExternalFilesDir("/").getAbsolutePath();
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        audioFileName = recordPath + "/" +"Speech King_" + timeStamp + "_"+"audio.wav";
+        audioFileName = recordPath + "/" +"Speech King_" + timeStamp + "_"+"audio.mp3";
 
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
