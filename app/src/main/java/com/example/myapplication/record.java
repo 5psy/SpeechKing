@@ -47,6 +47,7 @@ public class record extends AppCompatActivity {
 
     ImageButton audioRecordImageBtn;
     TextView audioRecordText;
+
     private Button evaluatebtn;
     private TextView script3;
 
@@ -77,6 +78,8 @@ public class record extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record);
 
+        init();
+
         // 파이어베이스 스토리지 초기화
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
@@ -89,8 +92,6 @@ public class record extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        init();
 
         script3 = findViewById(R.id.script3);
         TextView text = (TextView)findViewById(R.id.script3);
@@ -208,7 +209,7 @@ public class record extends AppCompatActivity {
         String recordPath = getExternalFilesDir("/").getAbsolutePath();
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        audioFileName = recordPath + "/" +"Speech King_" + timeStamp + "_"+"audio.mp4";
+        audioFileName = recordPath + "/" +"Speech King_" + timeStamp + "_"+"audio.wav";
 
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -268,6 +269,9 @@ public class record extends AppCompatActivity {
                         Toast.makeText(record.this, "녹음 파일 업로드 실패: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+
+        audioUri = Uri.parse(audioFileName);
+
         audioList.add(audioUri);
 
         audioAdapter.notifyDataSetChanged();
