@@ -34,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -42,6 +43,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import android.webkit.MimeTypeMap;
 
 public class record extends AppCompatActivity {
 
@@ -72,6 +75,9 @@ public class record extends AppCompatActivity {
     // firebase storage
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
+
+    //0526 박수영 추가
+    private String recordfilename;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,7 +215,10 @@ public class record extends AppCompatActivity {
         String recordPath = getExternalFilesDir("/").getAbsolutePath();
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        audioFileName = recordPath + "/" +"Speech King_" + timeStamp + "_"+"audio.mp3";
+        audioFileName = recordPath + "/" +"Speech King_" + timeStamp + "_"+"audio.wav";
+
+        //0526 realtime database 전달
+        recordfilename = "recordings/" + "Speech King_" + timeStamp + "_" + "audio.wav";
 
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -235,11 +244,15 @@ public class record extends AppCompatActivity {
 
         audioUri = Uri.fromFile(new File(audioFileName));
 
-        // 업로드할 파일 경로
+        //0526 업로드할 파일 경로
         StorageReference audioRef = storageReference.child("recordings").child(audioUri.getLastPathSegment());
 
+        StorageMetadata metadata = new StorageMetadata.Builder()
+                .setContentType("audio/wav")
+                .build();
+
         // 녹음 파일 업로드
-        audioRef.putFile(audioUri)
+        audioRef.putFile(audioUri, metadata)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -275,6 +288,12 @@ public class record extends AppCompatActivity {
         audioList.add(audioUri);
 
         audioAdapter.notifyDataSetChanged();
+
+        //0526 realtime database 전달
+        String firebaseFileName = recordfilename;
+
+        DatabaseReference filenameRef = FirebaseDatabase.getInstance().getReference().child("filename");
+        filenameRef.setValue(firebaseFileName);
     }
 
     // 녹음 파일 재생
