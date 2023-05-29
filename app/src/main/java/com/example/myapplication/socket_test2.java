@@ -5,15 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
 import androidx.appcompat.app.AppCompatActivity;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.Socket;
+
 import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 
@@ -37,14 +32,14 @@ public class socket_test2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.output);
 
-        script = findViewById(R.id.script);
+        script = findViewById(R.id.script1);
 
         Intent intent = getIntent();
         String fileContent = intent.getStringExtra("fileContent");
 
         script.setText(fileContent);
 
-        TextView text = (TextView)findViewById(R.id.script);
+        TextView text = (TextView)findViewById(R.id.script1);
         text.setMovementMethod(new ScrollingMovementMethod());
 
         Button selectagain = findViewById(R.id.selectagain);

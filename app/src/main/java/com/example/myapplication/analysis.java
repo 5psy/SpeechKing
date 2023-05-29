@@ -55,8 +55,8 @@ public class analysis extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle error if the data retrieval is canceled
             }
-
         });
+
 
         practicebtn = findViewById(R.id.practicebtn);
         practicebtn.setOnClickListener(new View.OnClickListener() {
@@ -67,4 +67,5 @@ public class analysis extends AppCompatActivity {
             }
         });
     }
+
 }

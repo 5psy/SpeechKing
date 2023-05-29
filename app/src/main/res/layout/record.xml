@@ -23,7 +23,7 @@
         <TextView
             android:id="@+id/script3"
             android:layout_width="match_parent"
-            android:layout_height="410dp"
+            android:layout_height="430dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
@@ -31,7 +31,10 @@
             android:background="@drawable/view_border"
             android:fontFamily="@font/malgunbd"
             android:gravity="center"
-            android:text="대본"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
             android:textColor="#000000"
             android:textSize="19sp" />
 
@@ -45,13 +48,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/line"
             android:fontFamily="@font/malgun"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="빨간색 단어는 강조단어입니다. 세게 높게 읽으세요. \n V표시에서 숨을 1.5초 쉬세요."
             android:textAlignment="center"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,20 +72,19 @@
 
                 <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="50dp"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="13dp"
+                    android:layout_height="62dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/img" />
 
                 <TextView
                     android:id="@+id/audioRecordText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="17dp"
                     android:layout_height="36dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/malgunbd"
-                    android:text="녹음중"
                     android:textColor="#000000"
                     android:textSize="20sp" />
 
@@ -87,24 +92,21 @@
                     android:id="@+id/audioRecordImageBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:padding="16dp"
-                    android:src="@drawable/ic_record" />
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/ic_record" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/evaluatebtn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#ED4FA6"
+                    android:background="@drawable/button"
                     android:fontFamily="@font/malgunbd"
-                    android:padding="20dp"
                     android:text="평가하기"
-                    android:textSize="15dp" />
+                    android:textSize="17dp" />
 
             </LinearLayout>
         </LinearLayout>

@@ -40,7 +40,6 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="133dp"
-            android:background="@drawable/line2"
             android:fontFamily="@font/malgunbd"
             android:gravity="center"
             android:text="전체 평가"
