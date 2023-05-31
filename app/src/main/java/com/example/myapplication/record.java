@@ -94,7 +94,7 @@ public class record extends AppCompatActivity {
         evaluatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(record.this,fivestar.class);
+                Intent intent = new Intent(record.this,fivestartest.class);
                 startActivity(intent);
             }
         });
