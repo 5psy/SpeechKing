@@ -74,8 +74,8 @@
                             android:layout_width="84dp"
                             android:layout_height="55dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:text="점수 :"
-                            android:textAlignment="center"
                             android:textColor="#FF5722"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -139,8 +139,8 @@
                             android:layout_width="84dp"
                             android:layout_height="55dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:text="점수 :"
-                            android:textAlignment="center"
                             android:textColor="#FF5722"
                             android:textSize="24sp"
                             android:textStyle="bold" />

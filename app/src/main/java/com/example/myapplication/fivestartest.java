@@ -139,13 +139,14 @@ public class fivestartest extends AppCompatActivity {
                 // Handle error if the data retrieval is canceled
             }
         });
+
         ref_sp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String text3 = dataSnapshot.getValue(String.class);
+                Integer text3 = dataSnapshot.getValue(Integer.class);
                 if (text3 != null) {
                     // TextView에 데이터를 설정합니다.
-                    pitch_total.setText(text3);
+                    pitch_total.setText(String.valueOf(text3));
                 }
             }
 
@@ -154,13 +155,14 @@ public class fivestartest extends AppCompatActivity {
                 // Handle error if the data retrieval is canceled
             }
         });
+
         ref_si.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String text4 = dataSnapshot.getValue(String.class);
+                Integer text4 = dataSnapshot.getValue(Integer.class);
                 if (text4 != null) {
                     // TextView에 데이터를 설정합니다.
-                    intensity_total.setText(text4);
+                    intensity_total.setText(String.valueOf(text4));
                 }
             }
 
