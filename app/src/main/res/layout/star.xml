@@ -112,7 +112,7 @@
 
                 <TextView
                     android:id="@+id/textView6"
-                    android:layout_width="122dp"
+                    android:layout_width="127dp"
                     android:layout_height="137dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/shape"
@@ -144,7 +144,7 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
-                        android:layout_width="269dp"
+                        android:layout_width="264dp"
                         android:layout_height="55dp"
                         android:background="@drawable/shape"
                         android:orientation="horizontal">
