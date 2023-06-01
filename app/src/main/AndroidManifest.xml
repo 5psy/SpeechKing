@@ -81,15 +81,6 @@
         </activity>
 
         <activity
-            android:name=".fivestar"
-            android:exported="true">
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-        <activity
             android:name=".analysis"
             android:exported="true">
 
