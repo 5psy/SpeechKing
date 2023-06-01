@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -89,13 +90,13 @@ public class fivestartest extends AppCompatActivity {
         pitch = findViewById(R.id.pitch);
         intensity = findViewById(R.id.intensity);
 
-        homebtn.setOnClickListener(new View.OnClickListener() {
+        /*homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(fivestartest.this, File.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref_mp = database.getReference("mp");
@@ -104,8 +105,11 @@ public class fivestartest extends AppCompatActivity {
         ref_mp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String text = dataSnapshot.getValue(String.class);
-                pitch.setText(text);
+                String text1 = dataSnapshot.getValue(String.class);
+                if (text1 != null) {
+                    // TextView에 데이터를 설정합니다.
+                    pitch.setText(text1);
+                }
             }
 
             @Override
@@ -117,8 +121,11 @@ public class fivestartest extends AppCompatActivity {
         ref_mi.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String text = dataSnapshot.getValue(String.class);
-                intensity.setText(text);
+                String text2 = dataSnapshot.getValue(String.class);
+                if (text2 != null) {
+                    // TextView에 데이터를 설정합니다.
+                    intensity.setText(text2);
+                }
             }
 
             @Override
