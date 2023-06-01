@@ -3,6 +3,8 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -79,6 +81,8 @@ public class record extends AppCompatActivity {
     //0526 박수영 추가
     private String recordfilename;
 
+    boolean isAudioRecordImageBtnPressed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,13 +95,37 @@ public class record extends AppCompatActivity {
         storageReference = firebaseStorage.getReference();
 
         evaluatebtn = findViewById(R.id.evaluatebtn);
-        evaluatebtn.setOnClickListener(new View.OnClickListener() {
+        /*evaluatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(record.this,fivestartest.class);
                 startActivity(intent);
             }
+        });*/
+
+        evaluatebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isAudioRecordImageBtnPressed) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(record.this);
+                    builder.setTitle("녹음 해주세요")
+                            .setMessage("녹음을 완료해야 평가창으로 넘어갈 수 있습니다.")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }).show();
+                } else {
+                    Intent intent = new Intent(record.this, fivestartest.class);
+                    startActivity(intent);
+                }
+            }
         });
+
+
+
+
 
         script3 = findViewById(R.id.script3);
         TextView text = (TextView)findViewById(R.id.script3);
@@ -156,8 +184,10 @@ public class record extends AppCompatActivity {
 
                     }
                 }
+                isAudioRecordImageBtnPressed = true;
             }
         });
+
 
         // 리사이클러뷰
         RecyclerView audioRecyclerView = findViewById(R.id.recyclerview);
@@ -326,5 +356,6 @@ public class record extends AppCompatActivity {
         isPlaying = false;
         mediaPlayer.stop();
     }
+
 
 }
