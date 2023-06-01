@@ -54,7 +54,7 @@
             android:fontFamily="@font/malgun"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="빨간색 단어는 강조단어입니다. 세게 높게 읽으세요. \n V표시에서 숨을 1.5초 쉬세요."
+            android:text="빨간색 단어는 강조단어입니다.  \n 조금 더 세게 읽으세요. "
             android:textAlignment="center"
             android:textColor="#000000"
             android:textStyle="bold" />
