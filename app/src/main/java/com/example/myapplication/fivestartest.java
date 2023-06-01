@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
+/*
 public class fivestartest extends AppCompatActivity {
 
     private Button homebtn;
@@ -73,5 +73,61 @@ public class fivestartest extends AppCompatActivity {
         });
 
     }
+}*/
+public class fivestartest extends AppCompatActivity {
+
+    private Button homebtn;
+    private TextView pitch;
+    private TextView intensity;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.star);
+
+        homebtn = findViewById(R.id.homebtn);
+        pitch = findViewById(R.id.pitch);
+        intensity = findViewById(R.id.intensity);
+
+        homebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(fivestartest.this, File.class);
+                startActivity(intent);
+            }
+        });
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref_mp = database.getReference("mp");
+        DatabaseReference ref_mi = database.getReference("mi");
+
+        ref_mp.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String text = dataSnapshot.getValue(String.class);
+                pitch.setText(text);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error if the data retrieval is canceled
+            }
+        });
+
+        ref_mi.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String text = dataSnapshot.getValue(String.class);
+                intensity.setText(text);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error if the data retrieval is canceled
+            }
+        });
+    }
 }
+
+
 
