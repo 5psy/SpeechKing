@@ -75,7 +75,7 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
@@ -83,9 +83,10 @@
             android:fontFamily="@font/malgun"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="빨간색 단어는 강조단어입니다.  \n 조금 더 세게 읽으세요. "
+            android:text="    빨간색 단어는 강조단어입니다.  \n   조금 더 높게 세게 읽으세요. "
             android:textAlignment="center"
             android:textColor="#000000"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <android.widget.Button
