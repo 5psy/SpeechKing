@@ -75,38 +75,18 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#C3FBC575"
-            android:fontFamily="@font/malgunbd"
-            android:text="분석 방법"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/line"
+            android:fontFamily="@font/malgun"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="빨간색 단어는 강조단어입니다.  \n 조금 더 세게 읽으세요. "
             android:textAlignment="center"
-            android:textIsSelectable="false"
-            android:textSize="19sp"
+            android:textColor="#000000"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#C3FBC575"
-            android:fontFamily="@font/malgunbd"
-            android:text="분석방법1 : 빨간색 부분을 세게, 높게 말해주세요"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#C3FBC575"
-            android:fontFamily="@font/malgunbd"
-            android:text="         분석방법2 : 추가 예정입니다." />
-
 
         <android.widget.Button
             android:id="@+id/practicebtn"

@@ -137,7 +137,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="12dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button"
+                    android:background="@drawable/button2"
                     android:fontFamily="@font/malgunbd"
                     android:text="총점 확인하기"
                     android:textSize="18dp" />
@@ -151,13 +151,13 @@
                     android:layout_weight="1" />
             </LinearLayout>
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/homebtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="#FFFFFF"
+                android:background="@drawable/button"
                 android:fontFamily="@font/malgunbd"
                 android:text="Home"
                 android:textColor="#000000"
