@@ -80,6 +80,8 @@ public class fivestartest extends AppCompatActivity {
     private Button homebtn;
     private TextView pitch;
     private TextView intensity;
+    private TextView pitch_total;
+    private TextView intensity_total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +91,8 @@ public class fivestartest extends AppCompatActivity {
         homebtn = findViewById(R.id.homebtn);
         pitch = findViewById(R.id.pitch);
         intensity = findViewById(R.id.intensity);
+        pitch_total = findViewById(R.id.pitch_total);
+        intensity_total = findViewById(R.id.intensity_total);
 
         /*homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +105,8 @@ public class fivestartest extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref_mp = database.getReference("mp");
         DatabaseReference ref_mi = database.getReference("mi");
+        DatabaseReference ref_sp = database.getReference("sp");
+        DatabaseReference ref_si = database.getReference("si");
 
         ref_mp.addValueEventListener(new ValueEventListener() {
             @Override
@@ -125,6 +131,36 @@ public class fivestartest extends AppCompatActivity {
                 if (text2 != null) {
                     // TextView에 데이터를 설정합니다.
                     intensity.setText(text2);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error if the data retrieval is canceled
+            }
+        });
+        ref_sp.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String text3 = dataSnapshot.getValue(String.class);
+                if (text3 != null) {
+                    // TextView에 데이터를 설정합니다.
+                    pitch_total.setText(text3);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error if the data retrieval is canceled
+            }
+        });
+        ref_si.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String text4 = dataSnapshot.getValue(String.class);
+                if (text4 != null) {
+                    // TextView에 데이터를 설정합니다.
+                    intensity_total.setText(text4);
                 }
             }
 
