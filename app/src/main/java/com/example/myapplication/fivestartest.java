@@ -99,13 +99,13 @@ public class fivestartest extends AppCompatActivity {
         intensity = findViewById(R.id.intensity);
         pitch_total = findViewById(R.id.pitch_total);
         intensity_total = findViewById(R.id.intensity_total);
-        button = findViewById(R.id.button);
+        //button = findViewById(R.id.button);
         imageView2 = findViewById(R.id.imageView2);
 
 
         final boolean[] isButtonPressed = {false};
 
-        button.setOnClickListener(new View.OnClickListener() {
+        /*button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -147,9 +147,9 @@ public class fivestartest extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
 
-        homebtn.setOnClickListener(new View.OnClickListener() {
+        /*homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!isButtonPressed[0]) {
@@ -167,9 +167,15 @@ public class fivestartest extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-        });
+        });*/
 
-
+        homebtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(fivestartest.this, start.class);
+                startActivity(intent);
+            }
+        }));
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -218,6 +224,9 @@ public class fivestartest extends AppCompatActivity {
                     // TextView에 데이터를 설정합니다.
                     String formattedValue = String.format("%.1f", text3);
                     pitch_total.setText(formattedValue);
+
+                    // Firebase에서 값이 변경되었을 때 별점 계산 및 출력
+                    calculateStarRating();
                 }
             }
 
@@ -235,6 +244,9 @@ public class fivestartest extends AppCompatActivity {
                     // TextView에 데이터를 설정합니다.
                     String formattedValue = String.format("%.1f", text4);
                     intensity_total.setText(formattedValue);
+
+                    // Firebase에서 값이 변경되었을 때 별점 계산 및 출력
+                    calculateStarRating();
                 }
             }
 
@@ -243,6 +255,45 @@ public class fivestartest extends AppCompatActivity {
                 // Handle error if the data retrieval is canceled
             }
         });
+    }
+
+    private void calculateStarRating() {
+        try {
+            double number1 = Double.parseDouble(pitch_total.getText().toString());
+            double number2 = Double.parseDouble(intensity_total.getText().toString());
+            double sum = number1 + number2;
+            double average = sum / 2;
+
+            int starRating;
+            if (average >= 5.0) {
+                starRating = 9;
+            } else if (average >= 4.1 && average <= 4.9) {
+                starRating = 8;
+            } else if (average >= 4.0) {
+                starRating = 7;
+            } else if (average >= 3.1 && average <= 3.9) {
+                starRating = 6;
+            } else if (average >= 3.0) {
+                starRating = 5;
+            } else if (average >= 2.1 && average <= 2.9) {
+                starRating = 4;
+            } else if (average >= 2.0) {
+                starRating = 3;
+            } else if (average >= 1.1 && average <= 1.9) {
+                starRating = 2;
+            } else if (average >= 1.0) {
+                starRating = 1;
+            } else {
+                starRating = 0;
+            }
+
+            setStarRating(starRating);
+
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void setStarRating(int starRating){
