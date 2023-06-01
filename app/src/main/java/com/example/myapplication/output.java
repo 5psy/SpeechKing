@@ -1,8 +1,12 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.method.ScrollingMovementMethod;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class output extends AppCompatActivity {
 
     private TextView script1;
+    private TextView textView3;
     private Button selectagain;
     private Button analysisbtn;
 
@@ -50,6 +55,19 @@ public class output extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        textView3 = findViewById(R.id.textView3);
+
+        String fullText = "    빨간색 단어는 강조단어입니다.  \n   조금 더 높게 세게 읽으세요. ";
+        String subText = "빨간색";
+
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(fullText);
+        ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.RED);
+        int startIndex = fullText.indexOf(subText);
+        int endIndex = startIndex + subText.length();
+        spannableStringBuilder.setSpan(colorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        textView3.setText(spannableStringBuilder);
     }
 
     @Override

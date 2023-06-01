@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 
@@ -19,8 +20,11 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.method.ScrollingMovementMethod;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -55,6 +59,7 @@ public class record extends AppCompatActivity {
 
     private Button evaluatebtn;
     private TextView script3;
+    private TextView textView8;
 
     // 오디오 권한
     private final String recordPermission = Manifest.permission.RECORD_AUDIO;
@@ -123,10 +128,6 @@ public class record extends AppCompatActivity {
             }
         });
 
-
-
-
-
         script3 = findViewById(R.id.script3);
         TextView text = (TextView)findViewById(R.id.script3);
         text.setMovementMethod(new ScrollingMovementMethod());
@@ -148,6 +149,19 @@ public class record extends AppCompatActivity {
             }
 
         });
+
+        textView8 = findViewById(R.id.textView8);
+
+        String fullText = "    빨간색 단어는 강조단어입니다.  \n   조금 더 높게 세게 읽으세요. ";
+        String subText = "빨간색";
+
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(fullText);
+        ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.RED);
+        int startIndex = fullText.indexOf(subText);
+        int endIndex = startIndex + subText.length();
+        spannableStringBuilder.setSpan(colorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        textView8.setText(spannableStringBuilder);
     }
 
 

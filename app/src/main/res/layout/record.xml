@@ -52,6 +52,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/line"
             android:fontFamily="@font/malgun"
+            android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:text="    빨간색 단어는 강조단어입니다.  \n   조금 더 높게 세게 읽으세요. "
