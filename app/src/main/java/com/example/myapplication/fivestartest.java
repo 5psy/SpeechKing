@@ -143,10 +143,11 @@ public class fivestartest extends AppCompatActivity {
         ref_sp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Integer text3 = dataSnapshot.getValue(Integer.class);
+                Double text3 = dataSnapshot.getValue(Double.class);
                 if (text3 != null) {
                     // TextView에 데이터를 설정합니다.
-                    pitch_total.setText(String.valueOf(text3));
+                    String formattedValue = String.format("%.1f", text3);
+                    pitch_total.setText(formattedValue);
                 }
             }
 
@@ -159,10 +160,11 @@ public class fivestartest extends AppCompatActivity {
         ref_si.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Integer text4 = dataSnapshot.getValue(Integer.class);
+                Double text4 = dataSnapshot.getValue(Double.class);
                 if (text4 != null) {
                     // TextView에 데이터를 설정합니다.
-                    intensity_total.setText(String.valueOf(text4));
+                    String formattedValue = String.format("%.1f", text4);
+                    intensity_total.setText(formattedValue);
                 }
             }
 
