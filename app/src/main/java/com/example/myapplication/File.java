@@ -15,13 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/*import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;*/
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +27,6 @@ public class File extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file);
-
 
     }
 
@@ -80,10 +72,6 @@ public class File extends AppCompatActivity {
                 Intent intent = new Intent(this, output.class);
                 intent.putExtra("fileContent", fileContent);
                 startActivity(intent);
-
-                // Update the text of the TextView with the file content
-                //textView.setText(fileContent);
-
 
             } catch (IOException e) {
                 e.printStackTrace();

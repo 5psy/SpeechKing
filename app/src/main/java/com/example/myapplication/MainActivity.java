@@ -59,9 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("fileContent", fileContent);
                 startActivity(intent);
 
-                // Update the text of the TextView with the file content
-                //textView.setText(fileContent);
-
 
             } catch (IOException e) {
                 e.printStackTrace();

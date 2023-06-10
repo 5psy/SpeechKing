@@ -50,8 +50,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import android.webkit.MimeTypeMap;
-
 public class record extends AppCompatActivity {
 
     ImageButton audioRecordImageBtn;
@@ -83,7 +81,7 @@ public class record extends AppCompatActivity {
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
 
-    //0526 박수영 추가
+    //음성 파일
     private String recordfilename;
 
     boolean isAudioRecordImageBtnPressed = false;
@@ -100,13 +98,6 @@ public class record extends AppCompatActivity {
         storageReference = firebaseStorage.getReference();
 
         evaluatebtn = findViewById(R.id.evaluatebtn);
-        /*evaluatebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(record.this,fivestartest.class);
-                startActivity(intent);
-            }
-        });*/
 
         evaluatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +113,7 @@ public class record extends AppCompatActivity {
                                 }
                             }).show();
                 } else {
-                    Intent intent = new Intent(record.this, fivestartest.class);
+                    Intent intent = new Intent(record.this, evaluate.class);
                     startActivity(intent);
                 }
             }
@@ -198,10 +189,7 @@ public class record extends AppCompatActivity {
                     // 녹화 이미지 버튼 변경 및 리코딩 상태 변수값 변경
                 } else {
                     // 현재 녹음 중 X
-                    /*절차
-                     *       1. Audio 권한 체크
-                     *       2. 처음으로 녹음 실행한건지 여부 확인
-                     * */
+
                     if(checkAudioPermission()) {
                         // 녹음 상태에 따른 변수 아이콘 & 텍스트 변경
                         isRecording = true; // 녹음 상태 값
@@ -226,7 +214,7 @@ public class record extends AppCompatActivity {
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         audioRecyclerView.setLayoutManager(mLayoutManager);
 
-        // 커스텀 이벤트 리스너 4. 액티비티에서 커스텀 리스너 객체 생성 및 전달
+        // 액티비티에서 커스텀 리스너 객체 생성 및 전달
         audioAdapter.setOnItemClickListener(new AudioAdapter.OnIconClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -274,7 +262,7 @@ public class record extends AppCompatActivity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         audioFileName = recordPath + "/" +"Speech King_" + timeStamp + "_"+"audio.wav";
 
-        //0526 realtime database 전달
+        //realtime database 전달
         recordfilename = "recordings/" + "Speech King_" + timeStamp + "_" + "audio.wav";
 
         mediaRecorder = new MediaRecorder();
@@ -301,7 +289,7 @@ public class record extends AppCompatActivity {
 
         audioUri = Uri.fromFile(new File(audioFileName));
 
-        //0526 업로드할 파일 경로
+        //업로드할 파일 경로
         StorageReference audioRef = storageReference.child("recordings").child(audioUri.getLastPathSegment());
 
         StorageMetadata metadata = new StorageMetadata.Builder()
@@ -321,7 +309,7 @@ public class record extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri downloadUri) {
                                 String downloadUrl = downloadUri.toString();
-                                // TODO: 업로드된 파일의 다운로드 URL 활용
+                                // 업로드된 파일의 다운로드 URL 활용
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -346,7 +334,7 @@ public class record extends AppCompatActivity {
 
         audioAdapter.notifyDataSetChanged();
 
-        //0526 realtime database 전달
+        //realtime database 전달
         String firebaseFileName = recordfilename;
 
         DatabaseReference filenameRef = FirebaseDatabase.getInstance().getReference().child("filename");

@@ -14,7 +14,7 @@ import java.net.Socket;
 
 public class sockettest extends AppCompatActivity {
 
-    private static final String host = "192.168.219.103";
+    private static final String host = "192.168.";
     private static final int port = 5555;
 
     private Socket s;

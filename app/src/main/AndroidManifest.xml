@@ -110,7 +110,7 @@
         </activity>
 
         <activity
-            android:name=".fivestartest"
+            android:name=".evaluate"
             android:exported="true">
 
 
