@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.text.Html;
 import android.text.Spanned;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -84,6 +85,20 @@ public class analysis extends AppCompatActivity {
         spannableStringBuilder.setSpan(colorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView3.setText(spannableStringBuilder);
+    }
+
+    private long pressedTime = 0;
+    @Override
+    public void onBackPressed(){
+        if(System.currentTimeMillis() > pressedTime + 2000 ){
+            pressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "한 번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
+        }
+        else if (System.currentTimeMillis() <= pressedTime + 2000){
+            finishAffinity();
+            System.runFinalization();
+            System.exit(0);
+        }
     }
 
 }
