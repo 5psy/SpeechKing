@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "648508128113",
+    "project_id": "speechking-787ec",
+    "storage_bucket": "speechking-787ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648508128113:android:9f2a44a50b44acbd21d4d0",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648508128113-ar0d5hiut2b65a40urccj9nr464dtjl5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP54lUhg-52fzuMSrxrIJdjIw6SlPkJoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648508128113-ar0d5hiut2b65a40urccj9nr464dtjl5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
